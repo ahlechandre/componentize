@@ -302,8 +302,9 @@ Componentize = (function () {
   var _upgradeElement = function (element, optionalCssClass) {
     var cssClasses = [];
     var registeredComponent /** @type {Componentize.ComponentConfig | null} */;
+    var isHTMLElement = element instanceof HTMLElement;
 
-    if (!(element instanceof HTMLElement)) return;
+    if (!isHTMLElement) return;
 
     cssClasses = element.classList;
 
@@ -360,7 +361,10 @@ Componentize = (function () {
   var _downgradeElement = function (element, optionalCssClass) {
     var componentsAsString = element.getAttribute('data-' + _constants.DATASET_UPGRADED);
     var components = [];
+    var isHTMLElement = element instanceof HTMLElement;
     var i;
+
+    if (!isHTMLElement) return;
 
     if (typeof optionalCssClass === 'string' && optionalCssClass.length) {
 
