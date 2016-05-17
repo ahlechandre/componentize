@@ -122,10 +122,6 @@ Componentize = (function () {
     var elements = document.querySelectorAll('.' + registered.cssClass);
     var i;
 
-    if (!elements.length) {
-      throw new Error('Not found elements for class "' + registered.cssClass + '".');
-    }
-
     for (i = 0; i < elements.length; i++) {
       _upgradeElementInternal(elements[i], registered);
     }
